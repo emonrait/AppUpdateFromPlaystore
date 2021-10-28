@@ -34,28 +34,46 @@ class InAppUpdate(activity: Activity) : InstallStateUpdatedListener {
                     }
                 } else if (info.updatePriority() == 4) { // Priority: 4
                     val clientVersionStalenessDays = info.clientVersionStalenessDays()
-                    if (clientVersionStalenessDays != null && clientVersionStalenessDays >= 5 && info.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
+                    if (clientVersionStalenessDays != null && clientVersionStalenessDays >= 5 && info.isUpdateTypeAllowed(
+                            AppUpdateType.IMMEDIATE
+                        )
+                    ) {
                         // Trigger IMMEDIATE flow
                         startUpdate(info, AppUpdateType.IMMEDIATE)
-                    } else if (clientVersionStalenessDays != null && clientVersionStalenessDays >= 3 && info.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) {
+                    } else if (clientVersionStalenessDays != null && clientVersionStalenessDays >= 3 && info.isUpdateTypeAllowed(
+                            AppUpdateType.FLEXIBLE
+                        )
+                    ) {
                         // Trigger FLEXIBLE flow
                         startUpdate(info, AppUpdateType.FLEXIBLE)
                     }
                 } else if (info.updatePriority() == 3) { // Priority: 3
                     val clientVersionStalenessDays = info.clientVersionStalenessDays()
-                    if (clientVersionStalenessDays != null && clientVersionStalenessDays >= 30 && info.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
+                    if (clientVersionStalenessDays != null && clientVersionStalenessDays >= 30 && info.isUpdateTypeAllowed(
+                            AppUpdateType.IMMEDIATE
+                        )
+                    ) {
                         // Trigger IMMEDIATE flow
                         startUpdate(info, AppUpdateType.IMMEDIATE)
-                    } else if (clientVersionStalenessDays != null && clientVersionStalenessDays >= 15 && info.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) {
+                    } else if (clientVersionStalenessDays != null && clientVersionStalenessDays >= 15 && info.isUpdateTypeAllowed(
+                            AppUpdateType.FLEXIBLE
+                        )
+                    ) {
                         // Trigger FLEXIBLE flow
                         startUpdate(info, AppUpdateType.FLEXIBLE)
                     }
                 } else if (info.updatePriority() == 2) { // Priority: 2
                     val clientVersionStalenessDays = info.clientVersionStalenessDays()
-                    if (clientVersionStalenessDays != null && clientVersionStalenessDays >= 90 && info.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
+                    if (clientVersionStalenessDays != null && clientVersionStalenessDays >= 90 && info.isUpdateTypeAllowed(
+                            AppUpdateType.IMMEDIATE
+                        )
+                    ) {
                         // Trigger IMMEDIATE flow
                         startUpdate(info, AppUpdateType.IMMEDIATE)
-                    } else if (clientVersionStalenessDays != null && clientVersionStalenessDays >= 30 && info.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) {
+                    } else if (clientVersionStalenessDays != null && clientVersionStalenessDays >= 30 && info.isUpdateTypeAllowed(
+                            AppUpdateType.FLEXIBLE
+                        )
+                    ) {
                         // Trigger FLEXIBLE flow
                         startUpdate(info, AppUpdateType.FLEXIBLE)
                     }
@@ -104,7 +122,7 @@ class InAppUpdate(activity: Activity) : InstallStateUpdatedListener {
     @SuppressLint("ResourceType")
     private fun flexibleUpdateDownloadCompleted() {
         Snackbar.make(
-            parentActivity.findViewById(R.layout.activity_main),
+            parentActivity.findViewById(R.id.activity_main),
             "An update has just been downloaded.",
             Snackbar.LENGTH_INDEFINITE
         ).apply {
